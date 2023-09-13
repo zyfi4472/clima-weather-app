@@ -1,14 +1,10 @@
-import 'dart:convert';
-
 import 'package:clima_weather_app/component/price_card.dart';
 import 'package:clima_weather_app/controller/data_controller.dart';
 import 'package:clima_weather_app/cubit/cubit/price_cubit.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'dart:io' show Platform;
-import 'package:http/http.dart' as http;
 
 import '../coin_data.dart';
 
@@ -22,9 +18,6 @@ class PriceScreen extends StatefulWidget {
 
 class _PriceScreenState extends State<PriceScreen> {
   String selectedCurrency = 'USD';
-  // double btcPrice = 0;
-  // double ethPrice = 0;
-  // double ltcPrice = 0;
 
   List<String> cryptocurrencies = ['BTC', 'ETH', 'LTC'];
 
@@ -145,44 +138,3 @@ class _PriceScreenState extends State<PriceScreen> {
     );
   }
 }
-
-
-
-
-
-
-// Future<void> getExchnageRate() async {
-//     final Uri uriBTC = Uri.parse(
-//       'https://rest.coinapi.io/v1/exchangerate/BTC/$selectedCurrency?apikey=F1A1740E-FF20-415F-BE64-77E0B4B09B3B',
-//     );
-//     final Uri uriETH = Uri.parse(
-//       'https://rest.coinapi.io/v1/exchangerate/ETH/$selectedCurrency?apikey=F1A1740E-FF20-415F-BE64-77E0B4B09B3B',
-//     );
-//     final Uri uriLTC = Uri.parse(
-//       'https://rest.coinapi.io/v1/exchangerate/LTC/$selectedCurrency?apikey=F1A1740E-FF20-415F-BE64-77E0B4B09B3B',
-//     );
-//     final http.Response responseBTC = await http.get(uriBTC);
-//     final http.Response responseETH = await http.get(uriETH);
-//     final http.Response responseLTC = await http.get(uriLTC);
-
-//     if (responseBTC.statusCode == 200 &&
-//         responseETH.statusCode == 200 &&
-//         responseLTC.statusCode == 200) {
-//       String dataBTC = responseBTC.body;
-//       String dataETH = responseETH.body;
-//       String dataLTC = responseLTC.body;
-
-//       print(dataBTC);
-//       setState(() {
-//         btcPrice = jsonDecode(dataBTC)['rate'];
-//         ethPrice = jsonDecode(dataETH)['rate'];
-//         ltcPrice = jsonDecode(dataLTC)['rate'];
-//       });
-
-//       // print(btcPrice);
-//     } else {
-//       if (kDebugMode) {
-//         print(responseBTC.statusCode);
-//       }
-//     }
-//   }
